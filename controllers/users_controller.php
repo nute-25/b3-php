@@ -3,6 +3,7 @@ require_once('../models/User.class.php');
 //demarrage session
 session_start();
 
+
 // try/catch pour lever les erreurs de connexion
 try {
 
@@ -35,6 +36,7 @@ try {
             $users = $user->findAll();
             header("Access-Control-Allow-Origin: *");
             header('Content-type: application/json; charset=UTF-8');
+            header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
             echo json_encode($users);
             break;
 
